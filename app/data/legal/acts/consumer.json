@@ -1,0 +1,34 @@
+[
+  {
+    "id": "cpa-2019",
+    "title": "Consumer Protection Act, 2019 — remedies for defective goods and deficient services",
+    "category": "acts",
+    "source_type": "primary",
+    "instrument": "Consumer Protection Act, 2019",
+    "section": "Sections 2(11), 2(42), 35, 38, 39, 69",
+    "authority": "Government of India",
+    "date": "2019-08-09",
+    "jurisdiction": "India",
+    "source_url": "https://www.indiacode.nic.in/",
+    "verified": false,
+    "demo_data": true,
+    "summary": "The Consumer Protection Act, 2019 protects consumers against defective goods (Section 2(42)) and deficiency in services (Section 2(11)). Complaints lie to District/State/National Commissions (Section 35), with remedies under Section 39, including refund, replacement and compensation. Limitation: two years (Section 69). E-filing through e-Daakhil is available.",
+    "text": "Consumer Protection Act, 2019 — key provisions:\n\nSection 2(11) defines 'deficiency' as any fault, imperfection, shortcoming or inadequacy in the quality, nature or manner of performance of a service, or breach of an express or implied warranty.\n\nSection 2(42): 'consumer' includes persons who buy goods or avail services, including online transactions (e-commerce buyers are expressly covered).\n\nSection 35: a complaint may be filed by a consumer (or registered consumer association / Central or State authority) alleging defect in goods, deficiency in service, unfair trade practice, overcharging or hazardous goods.\n\nSection 38-39: the commissions can direct removal of defects, replacement of goods, refund of price paid, compensation for loss, discontinuance of unfair practices, and compensation for hardship or mental agony caused to the consumer.\n\nSection 69: limitation — a complaint must ordinarily be instituted within two years from the date on which the cause of action arose (extensions only on sufficient cause shown).\n\nComplaints can be filed electronically through the e-Daakhil platform, and physical filing remains available. Fees for filing before the District Commission are prescribed in slabs by claim value (verify the current schedule before filing).\n\nDEMO KNOWLEDGE BASE ENTRY — condensed summary for demonstration purposes. Verify the current official text at indiacode.nic.in and consumeraffairs.nic.in before relying on it."
+  },
+  {
+    "id": "mta-2021",
+    "title": "Model Tenancy Act, 2021 — security deposit norms (model law)",
+    "category": "acts",
+    "source_type": "primary",
+    "instrument": "Model Tenancy Act, 2021",
+    "section": "Sections 11, 17",
+    "authority": "Ministry of Housing and Urban Affairs, Government of India",
+    "date": "2021-06-07",
+    "jurisdiction": "India (model law — adoption varies by state)",
+    "source_url": "https://mohua.gov.in/",
+    "verified": false,
+    "demo_data": true,
+    "summary": "The Model Tenancy Act, 2021 caps the security deposit (ordinarily two months' rent for residential premises) and provides for Rent Authorities to adjudicate tenancy disputes. It is a model law — it applies only in states that adopt it; check your state's rent law before relying on it.",
+    "text": "Model Tenancy Act, 2021 — key points:\n\nThe Act is a model law circulated by the Ministry of Housing and Urban Affairs to balance landlord and tenant interests. It applies only in states that adopt and enact it; several states continue under older rent-control legislation (e.g., the Maharashtra Rent Control Act, 1999, the Delhi Rent Control Act, 1958, or state-specific tenancy laws). This jurisdictional variance must be verified for the user's state.\n\nSecurity deposit: under the Model Tenancy Act the security deposit is ordinarily capped at two months' rent for residential premises (and a higher amount for commercial premises), refundable within a short statutory window after vacating, after deducting arrears and damages as agreed in the written agreement.\n\nThe Act contemplates written tenancy agreements, a Rent Authority to adjudicate disputes (including deposit refunds and eviction on prescribed grounds), and penalties for wrongful withholding.\n\nPractical pathway for a deposit dispute: (1) written demand with a reasonable period; (2) if unresolved, recourse under the applicable state rent law/Rent Authority where one exists; (3) otherwise, a civil suit for recovery based on the tenancy agreement and the Indian Contract Act, 1872.\n\nDEMO KNOWLEDGE BASE ENTRY — condensed summary for demonstration purposes. Verify adoption status in your state and the official text before relying on it."
+  }
+]

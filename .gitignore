@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+*.egg-info/
+
+# Env
+.env
+
+# DBs & Vector Stores
+*.db
+*.sqlite3
+chroma_db/
+vector_store/
+
+# Uploads
+uploads/*
+!uploads/.gitkeep

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ica-1872",
+    "title": "Indian Contract Act, 1872 — formation and breach",
+    "category": "acts",
+    "source_type": "primary",
+    "instrument": "Indian Contract Act, 1872",
+    "section": "Sections 10, 37, 73, 74",
+    "authority": "Government of India",
+    "date": "1872-04-25",
+    "jurisdiction": "India",
+    "source_url": "https://www.indiacode.nic.in/",
+    "verified": false,
+    "demo_data": true,
+    "summary": "The Indian Contract Act governs agreements (Section 10: essentials of a valid contract), obligations of parties (Section 37), compensation for breach (Section 73) and stipulated damages. Security deposits and advances are governed by the contract's own terms.",
+    "text": "Indian Contract Act, 1872 — key provisions for everyday disputes:\n\nSection 10: agreements are contracts if they are made by the free consent of parties competent to contract, for a lawful consideration and with a lawful object, and are not expressly declared void. A signed rental agreement, employment contract or service agreement is ordinarily a contract within this section.\n\nSection 37: the parties to a contract must either perform or offer to perform their respective promises, unless performance is dispensed with or excused.\n\nSection 73: when a contract has been broken, the party who suffers from the breach is entitled to receive compensation for any loss or damage naturally arising in the usual course of things from the breach. Compensation aims to restore the injured party, not to punish.\n\nSection 74: where a contract contains a stipulation for a penalty, only reasonable compensation can be recovered.\n\nApplication to security deposits: a landlord's obligation to refund a deposit arises from the tenancy agreement; wrongful withholding after the tenant has fulfilled obligations is actionable as breach of contract, and the tenant may recover the deposit with interest as compensation where proved.\n\nDEMO KNOWLEDGE BASE ENTRY — condensed summary for demonstration purposes. Verify the current official text at indiacode.nic.in before relying on it."
+  },
+  {
+    "id": "sra-1963",
+    "title": "Specific Relief Act, 1963 — specific relief and recovery",
+    "category": "acts",
+    "source_type": "primary",
+    "instrument": "Specific Relief Act, 1963",
+    "section": "Sections 10, 14, 34, 38",
+    "authority": "Government of India",
+    "date": "1963-12-13",
+    "jurisdiction": "India",
+    "source_url": "https://www.indiacode.nic.in/",
+    "verified": false,
+    "demo_data": true,
+    "summary": "The Specific Relief Act provides remedies beyond damages: specific performance of contracts (Section 10), preventive relief through injunctions (Sections 37-38), and declaratory relief (Section 34) — the civil toolkit for possession, agreement enforcement and money recovery.",
+    "text": "Specific Relief Act, 1963 — key remedies:\n\nSection 10: specific performance of a contract may, in the discretion of the court, be enforced when the act agreed to be done is such that compensation in money is not adequate. Applied to agreements for sale of property or unique goods.\n\nSection 14: contracts that cannot be specifically enforced (e.g. involving personal skill or dependent on multiple supervisory acts).\n\nSection 34: any person entitled to a legal character or right may institute a suit for declaration that he is so entitled.\n\nSection 38: perpetual injunctions may be granted to prevent breach of an obligation existing in favour of the plaintiff — used to stop dispossession, encroachment, publication of defamatory content, etc.\n\nFor money claims (unpaid deposits, unpaid dues), the ordinary remedy is a suit for recovery in a civil court of competent pecuniary jurisdiction; specific performance is generally for non-monetary obligations. Recovery suits are subject to the Limitation Act, 1963 (commonly a three-year period for simple contract claims — verify the applicable article on the facts).\n\nDEMO KNOWLEDGE BASE ENTRY — condensed summary for demonstration purposes. Verify the current official text at indiacode.nic.in before relying on it."
+  },
+  {
+    "id": "tpa-1882",
+    "title": "Transfer of Property Act, 1882 — transfers of immovable property",
+    "category": "acts",
+    "source_type": "primary",
+    "instrument": "Transfer of Property Act, 1882",
+    "section": "Sections 5, 8, 17, 41, 54, 105",
+    "authority": "Government of India",
+    "date": "1882-02-17",
+    "jurisdiction": "India",
+    "source_url": "https://www.indiacode.nic.in/",
+    "verified": false,
+    "demo_data": true,
+    "summary": "The Transfer of Property Act governs sale, mortgage, lease, exchange and gift of immovable property, including rights transferred, conditions restraining alienation, protection of bona fide purchasers and lease essentials.",
+    "text": "Transfer of Property Act, 1882 — key concepts:\n\nSection 5: 'transfer of property' means an act by which a living person conveys property to one or more other living persons. Section 8: unless a different intention is expressed, a transfer passes to the transferee all the transferor's interest in the property.\n\nSection 10: a condition absolutely restraining the transferee from alienating property is void.\n\nSection 41: a person who acquires immovable property in good faith for consideration from a person with an apparently valid title is protected (the 'shelter' principle relevant to double-sale disputes).\n\nSection 54: 'sale' of tangible immovable property of value above the threshold requires a registered instrument; agreements to sell are distinct from sales.\n\nSection 105: a lease of immovable property is a transfer of a right to enjoy the property for a certain time in consideration of rent; leases above one year ordinarily require registered instruments. Rent receipts and mutation records are primary documents proving tenancy/payment.\n\nDEMO KNOWLEDGE BASE ENTRY — condensed summary for demonstration purposes. Verify the current official text at indiacode.nic.in before relying on it."
+  }
+]
