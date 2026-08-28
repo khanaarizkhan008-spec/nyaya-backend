@@ -114,8 +114,33 @@ async def get_case(
         "reasoning": case.reasoning,
         "answers": case.answers,
         "emergency_reason": case.emergency_reason,
-        "agent_runs": await _agent_runs(case.id, db),
     }
+
+
+@router.delete("/{case_id}", status_code=204)
+async def delete_case(
+    case_id: str,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    import os
+    from app.models import Evidence
+    
+    case = await _get_user_case(case_id, user, db)
+    
+    # Clean up evidence files on disk
+    result = await db.execute(
+        select(Evidence).where(Evidence.case_id == case.id)
+    )
+    for ev in result.scalars():
+        try:
+            if ev.stored_path and os.path.exists(ev.stored_path):
+                os.remove(ev.stored_path)
+        except Exception:
+            pass
+            
+    await db.delete(case)
+    await db.commit()
 
 
 @router.post("/{case_id}/answers")
