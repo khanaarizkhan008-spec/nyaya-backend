@@ -68,7 +68,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://nyaya-frontend-git-main-khanaarizkhan008-specs-projects.vercel.app","https://nyaya-frontend-gules.vercel.app"
+        "https://nyaya-frontend-git-main-khanaarizkhan008-specs-projects.vercel.app","https://nyaya-frontend-gules.vercel.app/"
     ],
     allow_credentials=True,
     allow_methods=["*"],

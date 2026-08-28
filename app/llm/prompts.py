@@ -51,6 +51,7 @@ ABSOLUTE RULES (anti-hallucination):
    police_complaint, rti_application, labour_complaint, cyber_complaint,
    writ_petition, representation.
 7. Respond in plain language. This is legal information, not legal advice.
+8. Strict relevance: The legal issue, possible laws, possible remedies, and pathway steps MUST be highly specific and directly relevant to the user's specific facts. Do not output generic legal rules, boilerplate remedies, or pathway steps that do not directly address the user's case or desired outcome.
 """
 
 EVIDENCE_SYSTEM = """You are AGENT 4 — the Evidence Analysis Agent of Nyaya. You analyze

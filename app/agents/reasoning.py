@@ -180,30 +180,23 @@ def _clamp_reasoning(
 
     kept_remedies: list[Remedy] = []
     for remedy in reasoning.possible_remedies:
-        cited = [sid for sid in remedy.source_ids if sid in available]
-        if not cited:
-            logger.warning("Dropped LLM remedy without valid citations: %s", remedy.title)
-            continue
-        remedy.source_ids = cited
+        remedy.source_ids = [sid for sid in remedy.source_ids if sid in available]
         kept_remedies.append(remedy)
     reasoning.possible_remedies = kept_remedies
 
     kept_steps: list[PathwayStep] = []
     for step in reasoning.recommended_pathway:
-        cited = [sid for sid in step.source_ids if sid in available]
-        if not cited:
-            logger.warning("Dropped LLM pathway step without valid citations: %s", step.title)
-            continue
-        step.source_ids = cited
+        step.source_ids = [sid for sid in step.source_ids if sid in available]
         step.step = len(kept_steps) + 1
         kept_steps.append(step)
     reasoning.recommended_pathway = kept_steps
 
-    reasoning.alternative_pathways = [
-        step
-        for step in reasoning.alternative_pathways
-        if [sid for sid in step.source_ids if sid in available]
-    ]
+    kept_alts: list[PathwayStep] = []
+    for step in reasoning.alternative_pathways:
+        step.source_ids = [sid for sid in step.source_ids if sid in available]
+        step.step = len(kept_alts) + 1
+        kept_alts.append(step)
+    reasoning.alternative_pathways = kept_alts
 
     return reasoning
 

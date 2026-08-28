@@ -89,8 +89,8 @@ async def retrieve(
         chunk = best_chunk[cid]
         meta = chunk.metadata
         snippet = chunk.text.strip()
-        if len(snippet) > 420:
-            snippet = snippet[:417].rstrip() + "..."
+        if len(snippet) > 2000:
+            snippet = snippet[:1997].rstrip() + "..."
         refs.append(
             SourceRef(
                 source_id=meta.get("source_id", chunk.source_id),
@@ -130,8 +130,8 @@ async def retrieve_by_ids(source_ids: list[str]) -> list[SourceRef]:
         chunk = seen[sid]
         meta = chunk.metadata
         snippet = chunk.text.strip()
-        if len(snippet) > 420:
-            snippet = snippet[:417].rstrip() + "..."
+        if len(snippet) > 2000:
+            snippet = snippet[:1997].rstrip() + "..."
         refs.append(
             SourceRef(
                 source_id=meta.get("source_id", sid),

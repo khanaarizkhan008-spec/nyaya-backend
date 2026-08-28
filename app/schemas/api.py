@@ -100,3 +100,22 @@ class AdminSourceOut(BaseModel):
     demo_data: bool = True
     admin_added: bool = False
     summary: str = ""
+
+
+# ---------------------------------------------------------------- Feedback
+class FeedbackIn(BaseModel):
+    feedback_type: str = "misclassification"
+    suggested_domain: str = ""
+    comments: str = Field(min_length=5, max_length=4000)
+
+
+class FeedbackOut(BaseModel):
+    id: str
+    case_id: str
+    feedback_type: str
+    suggested_domain: str
+    comments: str
+    created_at: str
+
+    model_config = {"from_attributes": True}
+

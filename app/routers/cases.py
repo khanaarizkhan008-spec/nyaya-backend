@@ -7,8 +7,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.agents import orchestrator
 from app.deps import get_current_user, get_db
-from app.models import AgentRun, Case, User
-from app.schemas.api import AnswersIn, CaseCreateIn, CaseListItem
+from app.models import AgentRun, Case, Feedback, User
+from app.schemas.api import AnswersIn, CaseCreateIn, CaseListItem, FeedbackIn, FeedbackOut
 
 router = APIRouter(prefix="/api/cases", tags=["cases"])
 
@@ -114,8 +114,33 @@ async def get_case(
         "reasoning": case.reasoning,
         "answers": case.answers,
         "emergency_reason": case.emergency_reason,
-        "agent_runs": await _agent_runs(case.id, db),
     }
+
+
+@router.delete("/{case_id}", status_code=204)
+async def delete_case(
+    case_id: str,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    import os
+    from app.models import Evidence
+    
+    case = await _get_user_case(case_id, user, db)
+    
+    # Clean up evidence files on disk
+    result = await db.execute(
+        select(Evidence).where(Evidence.case_id == case.id)
+    )
+    for ev in result.scalars():
+        try:
+            if ev.stored_path and os.path.exists(ev.stored_path):
+                os.remove(ev.stored_path)
+        except Exception:
+            pass
+            
+    await db.delete(case)
+    await db.commit()
 
 
 @router.post("/{case_id}/answers")
@@ -186,3 +211,57 @@ async def change_case_domain(
     
     orchestrator.schedule_analysis(case.id)
     return {"case": _case_list_item(case), "status": case.status}
+
+
+@router.post("/{case_id}/feedback", status_code=201)
+async def submit_case_feedback(
+    case_id: str,
+    body: FeedbackIn,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """Report inaccurate advice or submit domain expert feedback for fine-tuning."""
+    case = await _get_user_case(case_id, user, db)
+    
+    feedback = Feedback(
+        case_id=case.id,
+        user_id=user.id,
+        feedback_type=body.feedback_type,
+        suggested_domain=body.suggested_domain,
+        comments=body.comments,
+    )
+    db.add(feedback)
+    await db.commit()
+    await db.refresh(feedback)
+    return FeedbackOut(
+        id=feedback.id,
+        case_id=feedback.case_id,
+        feedback_type=feedback.feedback_type,
+        suggested_domain=feedback.suggested_domain,
+        comments=feedback.comments,
+        created_at=feedback.created_at.isoformat(),
+    )
+
+
+@router.get("/{case_id}/feedback")
+async def list_case_feedback(
+    case_id: str,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    case = await _get_user_case(case_id, user, db)
+    result = await db.execute(
+        select(Feedback).where(Feedback.case_id == case.id).order_by(Feedback.created_at.desc())
+    )
+    feedbacks = result.scalars().all()
+    return [
+        FeedbackOut(
+            id=f.id,
+            case_id=f.case_id,
+            feedback_type=f.feedback_type,
+            suggested_domain=f.suggested_domain,
+            comments=f.comments,
+            created_at=f.created_at.isoformat(),
+        )
+        for f in feedbacks
+    ]
