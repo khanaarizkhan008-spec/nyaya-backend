@@ -107,3 +107,32 @@ async def remove_source(
 async def trigger_reindex(user: User = Depends(require_admin)):
     meta = await reindex()
     return {"message": "Re-indexed successfully", "meta": meta}
+
+
+@router.get("/feedbacks")
+async def list_all_feedbacks(
+    user: User = Depends(require_admin),
+    db: AsyncSession = Depends(get_db),
+):
+    from sqlalchemy import select
+    from app.models import Feedback, Case
+    result = await db.execute(
+        select(Feedback, Case.title, Case.domain_code)
+        .join(Case, Feedback.case_id == Case.id, isouter=True)
+        .order_by(Feedback.created_at.desc())
+    )
+    rows = result.all()
+    return [
+        {
+            "id": f.id,
+            "case_id": f.case_id,
+            "case_title": title or "Untitled",
+            "domain_code": domain_code or "",
+            "feedback_type": f.feedback_type,
+            "suggested_domain": f.suggested_domain,
+            "comments": f.comments,
+            "created_at": f.created_at.isoformat(),
+        }
+        for f, title, domain_code in rows
+    ]
+

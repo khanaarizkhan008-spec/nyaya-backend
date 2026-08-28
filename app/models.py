@@ -65,6 +65,9 @@ class Case(Base):
     runs: Mapped[list[AgentRun]] = relationship(
         back_populates="case", cascade="all, delete-orphan"
     )
+    feedbacks: Mapped[list[Feedback]] = relationship(
+        back_populates="case", cascade="all, delete-orphan"
+    )
 
 
 class Evidence(Base):
@@ -118,3 +121,18 @@ class AgentRun(Base):
     finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     case: Mapped[Case] = relationship(back_populates="runs")
+
+
+class Feedback(Base):
+    __tablename__ = "feedbacks"
+
+    id: Mapped[str] = mapped_column(String(32), primary_key=True, default=gen_id)
+    case_id: Mapped[str] = mapped_column(ForeignKey("cases.id", ondelete="CASCADE"), index=True)
+    user_id: Mapped[str | None] = mapped_column(ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True)
+    feedback_type: Mapped[str] = mapped_column(String(50), default="misclassification")
+    suggested_domain: Mapped[str] = mapped_column(String(50), default="")
+    comments: Mapped[str] = mapped_column(Text, default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+    case: Mapped[Case] = relationship(back_populates="feedbacks")
+
